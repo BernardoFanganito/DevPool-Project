@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevPool Project — Gestão de Usuários</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Cabeçalho branco com ícone estilo retrô do seu Canva -->
+  <header class="topo-branco">
+    <div class="logo-box">
+      <div class="icone-retro">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#366251" stroke-width="1.6">
+          <rect x="5" y="2" width="14" height="20" rx="2" />
+          <rect x="7" y="4" width="10" height="7" rx="1" />
+          <circle cx="10" cy="7.5" r="0.7" fill="#366251" />
+          <circle cx="14" cy="7.5" r="0.7" fill="#366251" />
+          <path d="M10.5 9.2c.8.8 2.2.8 3 0" stroke-linecap="round" />
+          <path d="M8.5 15h3M10 13.5v3" stroke-linecap="round" />
+          <circle cx="15.5" cy="14.5" r="0.9" />
+          <circle cx="14" cy="16.5" r="0.9" />
+        </svg>
+      </div>
+      <h1>DevPool Project</h1>
+    </div>
+  </header>
+
+  <!-- Divisória com efeito de papel rasgado -->
+  <div class="papel-rasgado"></div>
+
+  <!-- Área principal verde-sálvia -->
+  <main class="area-principal">
+    <!-- Caixa de avisos visuais (carregando, sucesso, erro) -->
+    <div id="alerta" class="alerta escondido"></div>
+
+    <div class="grid-painel">
+      <!-- Lado Esquerdo: Formulário estilo do seu Canva -->
+      <section class="card-formulario">
+        <h2 id="titulo-form">Criar uma conta</h2>
+        <p class="subtitulo-form">Preencha os dados para gerenciar o acesso</p>
+
+        <form id="form-usuario">
+          <input type="hidden" id="user-id" />
+
+          <input type="text" id="name" placeholder="Nome (mín. 3 letras)" required />
+          <input type="text" id="login" placeholder="Login (mín. 3 letras)" required />
+          <input type="email" id="email" placeholder="E-mail" required />
+          <input type="password" id="password" placeholder="Senha (mín. 8 caracteres)" />
+
+          <label class="checkbox-ativo">
+            <input type="checkbox" id="active" checked />
+            <span>Usuário Ativo</span>
+          </label>
+
+          <button type="submit" id="btn-salvar" class="btn-principal">Inscrever</button>
+          <button type="button" id="btn-cancelar" class="btn-secundario escondido">Cancelar Edição</button>
+        </form>
+      </section>
+
+      <!-- Lado Direito: Lista de Usuários Cadastrados -->
+      <section class="card-lista">
+        <div class="topo-lista">
+          <h2>Usuários Cadastrados</h2>
+          <span id="contador-usuarios" class="badge">0 usuários</span>
+        </div>
+
+        <div id="loading" class="loading escondido">Carregando registros do cofre...</div>
+
+        <div class="tabela-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>E-mail</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-usuarios">
+              <!-- Preenchido via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
